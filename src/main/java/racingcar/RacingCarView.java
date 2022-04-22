@@ -53,7 +53,7 @@ public class RacingCarView {
         if(sb.charAt(sb.length()-1)==',') {
             sb.setLength(sb.length()-1);
         }
-        System.out.println("최종 우승자는 "+sb.toString()+" 입니다.");
+        System.out.println("최종 우승자 : "+sb);
     }
 
     public int checkMaxDistance(Car car, int max, StringBuilder sb) {
