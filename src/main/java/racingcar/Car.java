@@ -29,12 +29,6 @@ public class Car {
         }
     }
 
-    public void printDistance() {
-        StringBuilder sb = new StringBuilder();
-        for(int i=0;i<distance;i++) {
-            sb.append("-");
-        }
-        System.out.println(name+" : "+sb.toString());
-    }
+
 
 }
