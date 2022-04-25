@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CarLists {
 
-    private List<Car> cars = null;
+    private final List<Car> cars;
 
     public CarLists(List<Car> cars) {
         this.cars=cars;
