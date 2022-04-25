@@ -4,8 +4,6 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class RacingCarView {
 
-    private static final String ERROR_MESSAGE = "[ERROR]";
-
     public int getMove() {
         return Integer.valueOf(Console.readLine());
     }
@@ -32,39 +30,39 @@ public class RacingCarView {
 
     public boolean isNotNameEmpty(String name) {
         if(name==null || name.isEmpty()) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
+            throw new IllegalArgumentException(Constants.NAME_EMPTY_MESSAGE);
         }
         return true;
     }
 
     public boolean isNotNameLengthOver(String name) {
         if(name.length()>5) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
+            throw new IllegalArgumentException(Constants.NAME_LENGTH_OVER_MESSAGE);
         }
         return true;
     }
 
     public void printWinner(Car[] cars) {
-        StringBuilder sb = new StringBuilder();
-        int max=cars[0].getDistance();
+        StringBuilder winnerNames = new StringBuilder();
+        int maxDistance=cars[0].getDistance();
         for(int i=0;i<cars.length;i++) {
-            max = checkMaxDistance(cars[i], max, sb);
+            maxDistance = checkMaxDistance(cars[i], maxDistance, winnerNames);
         }
-        if(sb.charAt(sb.length()-1)==',') {
-            sb.setLength(sb.length()-1);
+        if(winnerNames.charAt(winnerNames.length()-1)==',') {
+            winnerNames.setLength(winnerNames.length()-1);
         }
-        System.out.println("최종 우승자 : "+sb);
+        System.out.println("최종 우승자 : "+winnerNames);
     }
 
-    public int checkMaxDistance(Car car, int max, StringBuilder sb) {
-        if(car.getDistance()>max) {
-            max = car.getDistance();
-            sb.setLength(0);
-            sb.append(car.getName()+",");
-        } else if(car.getDistance()==max) {
-            sb.append(car.getName()+",");
+    public int checkMaxDistance(Car car, int maxDistance, StringBuilder winnerNames) {
+        if(car.getDistance()>maxDistance) {
+            maxDistance = car.getDistance();
+            winnerNames.setLength(0);
+            winnerNames.append(car.getName()+",");
+        } else if(car.getDistance()==maxDistance) {
+            winnerNames.append(car.getName()+",");
         }
-        return max;
+        return maxDistance;
     }
 
     public void printDistance(Car car) {
