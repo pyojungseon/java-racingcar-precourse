@@ -2,6 +2,8 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.List;
+
 public class RacingCarView {
 
     public int getMove() {
@@ -42,11 +44,11 @@ public class RacingCarView {
         return true;
     }
 
-    public void printWinner(Car[] cars) {
+    public void printWinner(List<Car> cars) {
         StringBuilder winnerNames = new StringBuilder();
-        int maxDistance=cars[0].getDistance();
-        for(int i=0;i<cars.length;i++) {
-            maxDistance = checkMaxDistance(cars[i], maxDistance, winnerNames);
+        int maxDistance=cars.get(0).getDistance();
+        for(int i=0;i<cars.size();i++) {
+            maxDistance = checkMaxDistance(cars.get(i), maxDistance, winnerNames);
         }
         if(winnerNames.charAt(winnerNames.length()-1)==',') {
             winnerNames.setLength(winnerNames.length()-1);
