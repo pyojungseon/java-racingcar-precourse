@@ -16,19 +16,12 @@ public class RacingCar {
         for (int i = 0; i < names.length; i++) {
             cars.add(new Car(names[i]));
         }
+
         CarLists carLists = new CarLists(cars);
+
         for (int i = 0; i < move; i++) {
-            moveCars(carLists, view);
+            carLists.moveCars(view);
         }
         view.printWinner(cars);
-    }
-
-    public void moveCars(CarLists carLists, RacingCarView view) {
-        List<Car> cars = carLists.getCars();
-        for(int i=0;i<cars.size();i++) {
-            cars.get(i).accel();
-            view.printDistance(cars.get(i));
-        }
-        System.out.println();
     }
 }

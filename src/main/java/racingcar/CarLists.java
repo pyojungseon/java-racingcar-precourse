@@ -10,7 +10,11 @@ public class CarLists {
         this.cars=cars;
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public void moveCars(RacingCarView view) {
+        for(int i=0;i<cars.size();i++) {
+            cars.get(i).accel();
+            view.printDistance(cars.get(i));
+        }
+        System.out.println();
     }
 }
